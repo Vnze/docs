@@ -93,7 +93,7 @@ foreach (ParticleDevice device in devices)
 #### Get device instance by its ID or name
 
 ```cs
-ParticleDevice device = ParticleCloud.SharedCloud.GetDeviceAsync("e9eb56e90e703f602d67ceb3");
+ParticleDevice device = await ParticleCloud.SharedCloud.GetDeviceAsync("e9eb56e90e703f602d67ceb3");
 ```
 ---
 
@@ -112,7 +112,7 @@ int temperatureReading = (int)variableResponse.Result;
 Invoke a function on the device and pass a parameter to it, the returning `ParticleFunctionResponse` will represent the returned result data of the function on the device.
 
 ```cs
-int functionResponse = myDevice.RunFunctionAsync("digitalwrite", "D7 HIGH"));
+var functionResponse = await myDevice.RunFunctionAsync("digitalwrite", "D7 HIGH"));
 int result = functionResponse.ReturnValue;
 ```
 ---
